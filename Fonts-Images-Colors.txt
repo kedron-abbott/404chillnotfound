@@ -1,0 +1,13 @@
+Font:
+~Remachine Script Personal Use Font
+~ Jackport college nav
+~ Collegiate Heavy Outline
+~ San Serif
+
+Background(s):
+~http://www.youthactionproject.org/wp-content/uploads/2014/05/Students-Walking-on-Campus.jpg
+~https://concordiacollege.edu/files/virtual-tour/walking2.jpg
+
+Color Schemes: (https://blog.crazyegg.com/2012/07/11/website-color-palettes/)
+~ Lake Nona
+~Nordic Ruby
