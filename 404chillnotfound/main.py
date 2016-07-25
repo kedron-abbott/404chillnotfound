@@ -6,6 +6,9 @@ from google.appengine.ext import ndb
 env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
 with open('applications/institutionsapi.json') as data_file:
     collegeData = json.load(data_file)
+collegeList = []
+for a in collegeData:
+    collegeList.append(a['collegeName'])
 
 class CollegeInfo(ndb.Model):
     collegeName = ndb.StringProperty(required=True)
@@ -20,11 +23,24 @@ class CollegeInfo(ndb.Model):
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
+        print collegeData[0]['collegeName']
         entryTemplate =  env.get_template('college-input.html')
         entryContent = entryTemplate.render()
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':entryContent
+        }))
+    def post(self):
+        collegeName = self.request.get("college-name")
+        myCollege = CollegeInfo(collegeName=collegeName)
+        if collegeName in collegeList:
+            myCollege.put()
+            resultsContent = env.get_template('results.html')
+        else:
+            resultsContent = env.get_template('error.html')
+        indexTemplate = env.get_template('index.html')
+        self.response.out.write(indexTemplate.render({
+        'content':resultsContent
         }))
 
 class FilterHandler (webapp2.RequestHandler):

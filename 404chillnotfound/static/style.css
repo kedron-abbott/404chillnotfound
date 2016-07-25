@@ -3,12 +3,24 @@ html, body {
   margin: 0;
 }
 
+.error {
+  margin-top: 150px;
+  margin-left: 20px;
+}
+
 .header {
   position: fixed;
   height: 100px;
   top:0;
   left:0;
   width:500%;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 .input-box {
