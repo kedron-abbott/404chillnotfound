@@ -10,4 +10,7 @@ Background(s):
 
 Color Schemes: (https://blog.crazyegg.com/2012/07/11/website-color-palettes/)
 ~ Lake Nona
-~Nordic Ruby
+  - #E44424
+  - #67BCDB
+  - #A2AB58
+  - #FFFFFF
