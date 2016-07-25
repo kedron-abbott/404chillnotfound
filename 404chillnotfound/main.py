@@ -23,6 +23,16 @@ class MainHandler(webapp2.RequestHandler):
         'content':entryContent
         }))
 
+class FilterHandler (webapp2.RequestHandler):
+    def get(self):
+        filterTemplate = env.get_template('filters.html')
+        filterContent = filterTemplate.render()
+        indexTemplate = env.get_template('index.html')
+        self.response.out.write(indexTemplate.render({
+        'content':filterContent
+        }))
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/filters', FilterHandler),
 ], debug=True)
