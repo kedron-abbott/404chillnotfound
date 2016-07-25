@@ -12,6 +12,8 @@ handlers:
 - url: /style\.css
   static_files: static/style.css
   upload: static/style\.css
+- url: /static
+  static_dir: static
 
 - url: .*
   script: main.app
