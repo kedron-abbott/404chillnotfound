@@ -41,6 +41,22 @@ html, body {
 .article {
   background: #fdfbee;
 }
+div {
+  position: relative;
+  display: inline;
+}
+img.a {
+  position: relative;
+  left: 0;
+  top: 0;
+    z-index: 10;
+}
+
+img.b {
+  position: relative;
+  left: 0;
+  top: 0;
+}
 
 header {background: #e44424;color:white;}
 footer {background: #a2ab58;color:white;}
