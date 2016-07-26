@@ -8,3 +8,8 @@ $("img.a").hover(
     console.log("fading in: ");
 	}
 );
+$( function() {
+    $( "#colleges" ).autocomplete({
+      source: jsCollegeList
+    });
+  } );

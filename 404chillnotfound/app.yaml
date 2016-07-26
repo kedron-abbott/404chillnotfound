@@ -17,7 +17,7 @@ handlers:
   static_dir: static
 
 - url: /GigaGuideScripts\.js
-  static: GigaGuideScripts.js
+  static_files: scripts/GigaGuideScripts.js
   upload: scripts/GigaGuideScripts\.js
 
 - url: .*

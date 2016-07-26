@@ -61,6 +61,7 @@ class MainHandler(webapp2.RequestHandler):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':entryContent,
+        'jsCollegeList':jsCollegeList,
         }))
     # When user enters college
     def post(self):
@@ -75,7 +76,6 @@ class MainHandler(webapp2.RequestHandler):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':resultsContent,
-        'jsCollegeList':jsCollegeList,
         }))
 
 # Handler to test appearance of filters; identical to MainHandler's post method with valid college name
