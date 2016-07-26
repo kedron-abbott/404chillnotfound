@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      html, body {
+        height: 65%;
+        width: 65%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+      /*  width: 65%  ;  */
+      }
+    </style>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var map;
+      var infowindow;
+
+      function initMap() {
+        var pyrmont = {lat: 42.359968, lng: -71.060093};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 16
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var clothing_storeservice = new google.maps.places.PlacesService(map);
+        var shopping_mallservice = new google.maps.places.PlacesService(map);
+        var restaurantservice = new google.maps.places.PlacesService(map);
+        var night_clubservice = new google.maps.places.PlacesService(map);
+        var bowling_alleyservice = new google.maps.places.PlacesService(map);
+        var movieservice = new google.maps.places.PlacesService(map);
+
+         clothing_storeservice.nearbySearch({
+          location: pyrmont,
+          radius: 250,
+          type: ['clothing_store']
+        }, callback);
+
+        shopping_mallservice.nearbySearch({
+         location: pyrmont,
+         radius: 250,
+         type: ['shopping_mall']
+       }, callback);
+
+        restaurantservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['restaurant']
+        }, callback);
+
+        night_clubservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['night_club']
+        }, callback);
+
+         bowling_alleyservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['bowling_alley']
+        }, callback);
+
+        movieservice.nearbySearch({
+         location: pyrmont,
+         radius: 500,
+         type: ['movie_theater']
+       }, callback);
+
+
+      }
+
+
+
+      function callback(results, status) {
+    //    document.getElementById("test").innerHTML = Object.getOwnPropertyNames(results[0]);
+      //  document.getElementById("test2").innerHTML = results.
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent('<div><strong>' + place.name + '</strong>'+ '<br>' + place.vicinity + '</div>');
+        //  infowindow.setContent(place.geometry);
+          infowindow.open(map, this);
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAZAKCQUtcbkbGTCz0SMvSyPuPgqKSSxpI&libraries=places&callback=initMap" async defer></script>
+    <div id="test"></div>
+    <div id="test2"></div>
+  </body>
+</html>
