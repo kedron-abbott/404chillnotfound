@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $( document ).ready(function() {
 	$("img.a").hover(
 		function() {
@@ -17,34 +18,9 @@ $( document ).ready(function() {
 
 });
 
-
-
-
-
-
-
-
-
-//Below is Savannah's code -- this is the autocomplete feature on the site
-
-//$( function() {
-//    $( "#colleges" ).autocomplete({
-//      source: jsCollegeList
-//    });
-//  } );
-/*
-var options = {
-	data: jsCollegeList
-	placeholder: "College Name"
-	getValue: "name",
-	list: {
-		match: {
-			enabled: true
-		},
-		maxNumberOfElements: 8
-	},
-	theme: "plate-dark"
-};
-
-$("#plate").easyAutocomplete(options);
-*/
+// Autocomplete college name as user types
+$( function() {
+    $( "#colleges" ).autocomplete({
+      source: jsCollegeList
+    });
+} );
