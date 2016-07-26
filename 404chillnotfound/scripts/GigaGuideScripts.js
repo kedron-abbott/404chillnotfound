@@ -20,8 +20,25 @@ function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));} //this c
 
 
 //Below is Savannah's code -- this is the autocomplete feature on the site
+
 $( function() {
     $( "#colleges" ).autocomplete({
       source: jsCollegeList
     });
   } );
+/*
+var options = {
+	data: jsCollegeList
+	placeholder: "College Name"
+	getValue: "name",
+	list: {
+		match: {
+			enabled: true
+		},
+		maxNumberOfElements: 8
+	},
+	theme: "plate-dark"
+};
+
+$("#plate").easyAutocomplete(options);
+*/
