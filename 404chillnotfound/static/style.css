@@ -1,17 +1,21 @@
+/* Sets fixed background */
 html {
   background: url('http://arcollegeadvising.com/wp-content/uploads/2015/06/boise-state-campus-fall.jpg') no-repeat center center fixed;
 }
 
+/* Removes paddings and margins for a full-screen effect */
 html, body {
   padding: 0;
   margin: 0;
 }
 
+/* CHANGE THIS TO MAKE TEXT LOGO PRETTY */
 h1 {
   text-align: center;
   text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
+/* Top header with text logo */
 .header {
   position: fixed;
   height: 75px;
@@ -21,6 +25,7 @@ h1 {
   opacity: 0.9;
 }
 
+/* Bottom footer with copyright */
 .footer {
   position: fixed;
   bottom: 0;
@@ -31,6 +36,7 @@ h1 {
   opacity: 0.8;
 }
 
+/* College name entry box on front page */
 .input-box {
   border: 5px solid #777777;
   border-radius: 30px;
@@ -43,6 +49,7 @@ h1 {
   text-align: left;
 }
 
+/* Contains recent colleges and article boxes */
 .flex-container {
   width: 100%;
   height: 100%;
@@ -55,17 +62,20 @@ h1 {
   align-items: center;
 }
 
+/* Affects all items within the flex container */
 .flex-container > * {
   padding: 10px;
   -webkit-flex: 1 100%;
   flex: 1 100%;
 }
 
+/* The article which changes as the user navigates the page */
 .article {
   color: white;
   vertical-align: middle;
 }
 
+/* Recently searched colleges box */
 .recent {
   border: 5px solid #777777;
   border-radius: 30px;
@@ -73,23 +83,27 @@ h1 {
   width: 15%;
 }
 
-
+/*  */
 img.a {
   z-index: 10;
 }
 
+/*  */
 #colored {
   position: relative;;
 }
 
+/*  */
 #bw {
   position: absolute;
 }
 
+/* Changes colours of main elements */
 header {background: #e44424;color:white;}
 footer {background: #a2ab58;color:white;}
 .recent {background:#ffffff;}
 
+/* To ensure flex boxes appear properly */
 @media all and (min-width: 768px) {
   .recent {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}
   .article {-webkit-flex:5 0px;flex:5 0px;-webkit-order:2;order:2;}
