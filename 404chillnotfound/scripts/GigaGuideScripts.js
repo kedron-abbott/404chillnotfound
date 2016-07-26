@@ -8,8 +8,25 @@ $("img.a").hover(
     console.log("fading in: ");
 	}
 );
+
 $( function() {
     $( "#colleges" ).autocomplete({
       source: jsCollegeList
     });
   } );
+/*
+var options = {
+	data: jsCollegeList
+	placeholder: "College Name"
+	getValue: "name",
+	list: {
+		match: {
+			enabled: true
+		},
+		maxNumberOfElements: 8
+	},
+	theme: "plate-dark"
+};
+
+$("#plate").easyAutocomplete(options);
+*/
