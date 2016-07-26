@@ -62,7 +62,6 @@ html, body {
   vertical-align: middle;
 }
 
-<<<<<<< HEAD
 .recent {
   border: 5px solid #67bcdb;
 }
@@ -71,6 +70,7 @@ div {
   position: relative;
   display: inline;
 }
+
 img.a {
   position: relative;
   left: 0;

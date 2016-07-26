@@ -17,6 +17,8 @@ for a in collegeData:
 collegeAliases = []
 for b in collegeData:
     collegeAliases.append(b['alias'])
+# Converting the lists to Json in order to use in Javascript
+jsCollegeList = json.dumps(collegeList + collegeAliases)
 
 # Find information about a college by name and push to datastore
 def pushCollege(name):
