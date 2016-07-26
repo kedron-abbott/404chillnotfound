@@ -12,8 +12,13 @@ handlers:
 - url: /style\.css
   static_files: static/style.css
   upload: static/style\.css
+
 - url: /static
   static_dir: static
+
+- url: /GigaGuideScripts\.js
+  static: GigaGuideScripts.js
+  upload: scripts/GigaGuideScripts\.js
 
 - url: .*
   script: main.app

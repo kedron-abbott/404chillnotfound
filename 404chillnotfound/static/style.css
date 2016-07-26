@@ -62,6 +62,7 @@ html, body {
   vertical-align: middle;
 }
 
+<<<<<<< HEAD
 .recent {
   border: 5px solid #67bcdb;
 }
@@ -75,12 +76,20 @@ img.a {
   left: 0;
   top: 0;
     z-index: 10;
+
+#colored {
+  width: 1000px auto;
+  position: absolute;
+  background-color: black;
+  right: 100px;
 }
 
-img.b {
-  position: relative;
-  left: 0;
-  top: 0;
+#bw {
+  width: 1000px auto;
+  position: absolute;
+  z-index: 1;
+  background-color: red;
+  right: 100px;
 }
 
 header {background: #e44424;color:white;}
