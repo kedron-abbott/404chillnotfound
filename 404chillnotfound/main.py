@@ -39,6 +39,22 @@ def pushCollege(name):
     )
     return myCollege.put()
 
+# Creates and outputs a query with the 3 most recent college searches
+def renderRecentInfo():
+    recentCollegeQuery = CollegeInfo.query().order(-CollegeInfo.searchTime).fetch()
+    templateVariables = []
+    for data in recentCollegeQuery:
+        thisCollege = {}
+        thisCollege['recName'] = data.collegeName
+        thisCollege['recCity'] = data.collegeCity
+        thisCollege['recState'] = data.collegeState
+        thisCollege['recWebsite'] = data.collegeWebsite
+        templateVariables.append(thisCollege)
+    recentTemplate = env.get_template('recent.html')
+    return recentTemplate.render({
+    'recColleges':templateVariables,
+    })
+
 # Datastore model for enetered colleges
 class CollegeInfo(ndb.Model):
     collegeName = ndb.StringProperty(required=True)
@@ -50,6 +66,7 @@ class CollegeInfo(ndb.Model):
     collegeLatitude = ndb.StringProperty(required=False)
     collegeLongitude = ndb.StringProperty(required=False)
     collegeAlias = ndb.StringProperty(required=False)
+    searchTime = ndb.DateTimeProperty(required=True, auto_now_add=True)
 
 # Main handler for when website is requested
 class MainHandler(webapp2.RequestHandler):
@@ -61,6 +78,7 @@ class MainHandler(webapp2.RequestHandler):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':entryContent,
+        'recContent':renderRecentInfo(),
         'jsCollegeList':jsCollegeList,
         }))
     # When user enters college
@@ -89,8 +107,17 @@ class FilterHandler (webapp2.RequestHandler):
         'jsCollegeList':jsCollegeList,
         }))
 
+class RecentHandler (webapp2.RequestHandler):
+    def get(self):
+        indexTemplate = env.get_template('index.html')
+        self.response.out.write(indexTemplate.render({
+        'content':renderRecentInfo()
+        }))
+
+
 # Main application showing how to handle user's requests
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/filters', FilterHandler),
+    ('/recent', RecentHandler),
 ], debug=True)

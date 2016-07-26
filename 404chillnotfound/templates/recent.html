@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+  <center><h3>Recently Searched Colleges:</h3></center>
+  {% for col in recColleges %}
+    <p class="rec-col-name"><a href="http://{{ col.recWebsite }}">{{ col.recName }}</a></p>
+    <p class="rec-col-location">{{ col.recCity }}, {{ col.recState}}</p>
+  {% endfor %}
+</body>
+
+</html>
