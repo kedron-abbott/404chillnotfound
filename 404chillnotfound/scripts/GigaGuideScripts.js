@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 $( document ).ready(function() {
 	$("img.a").hover(
 		function() {
