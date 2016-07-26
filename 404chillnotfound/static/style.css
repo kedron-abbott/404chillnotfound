@@ -7,17 +7,18 @@ html, body {
   margin: 0;
 }
 
-.error {
-  margin-top: 150px;
-  margin-left: 20px;
+h1 {
+  text-align: center;
+  text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
 .header {
   position: fixed;
-  height: 100px;
-  top:0;
-  left:0;
-  width:500%;
+  height: 75px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.9;
 }
 
 .footer {
@@ -25,13 +26,16 @@ html, body {
   bottom: 0;
   left: 0;
   right: 0;
+  height: 30px;
+  line-height: 0px;
+  opacity: 0.8;
 }
 
 .input-box {
   border: 5px solid #777777;
   border-radius: 30px;
   height: 50px;
-  width: 50%;
+  width: 60%;
   padding-left:10px;
   padding-right:10px;
   opacity: 0.7;
@@ -63,18 +67,23 @@ html, body {
 }
 
 .recent {
-  border: 5px solid #67bcdb;
+  border: 5px solid #777777;
+  border-radius: 30px;
+  opacity: 0.7;
+  width: 15%;
 }
 
 div {
   position: relative;
   display: inline;
 }
+
 img.a {
   position: relative;
   left: 0;
   top: 0;
-    z-index: 10;
+  z-index: 10;
+}
 
 #colored {
   width: 500px auto;
@@ -93,7 +102,7 @@ img.a {
 
 header {background: #e44424;color:white;}
 footer {background: #a2ab58;color:white;}
-.recent {background:#fff;}
+.recent {background:#ffffff;}
 
 @media all and (min-width: 768px) {
   .recent {text-align:left;-webkit-flex: 1 auto;flex:1 auto;-webkit-order:1;order:1;}

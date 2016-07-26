@@ -17,6 +17,8 @@ for a in collegeData:
 collegeAliases = []
 for b in collegeData:
     collegeAliases.append(b['alias'])
+# Converting the lists to Json in order to use in Javascript
+jsCollegeList = json.dumps(collegeList + collegeAliases)
 
 # Find information about a college by name and push to datastore
 def pushCollege(name):
@@ -33,7 +35,7 @@ def pushCollege(name):
     collegeWebsite = collegeData[index]['website'],
     collegeLatitude = str(collegeData[index]['latitude']),
     collegeLongitude = str(collegeData[index]['longitude']),
-    collegeAlias = collegeData[index]['alias']
+    collegeAlias = collegeData[index]['alias'],
     )
     return myCollege.put()
 
@@ -58,7 +60,8 @@ class MainHandler(webapp2.RequestHandler):
         entryContent = entryTemplate.render()
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
-        'content':entryContent
+        'content':entryContent,
+        'jsCollegeList':jsCollegeList,
         }))
     # When user enters college
     def post(self):
@@ -72,7 +75,7 @@ class MainHandler(webapp2.RequestHandler):
         resultsContent = resultsTemplate.render()
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
-        'content':resultsContent
+        'content':resultsContent,
         }))
 
 # Handler to test appearance of filters; identical to MainHandler's post method with valid college name
@@ -82,7 +85,7 @@ class FilterHandler (webapp2.RequestHandler):
         filterContent = filterTemplate.render()
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
-        'content':filterContent
+        'content':filterContent,
         }))
 
 # Main application showing how to handle user's requests
