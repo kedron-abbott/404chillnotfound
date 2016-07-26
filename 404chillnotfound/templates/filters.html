@@ -1,4 +1,4 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
+<script src="static/Filter-Icons/https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"> </script>
 <script type='text/javascript'></script>
 
 
@@ -12,12 +12,26 @@
 </div>
 
 <div id="bw">
-    <img src="static/Filter-Icons/festivalsBW.png" align="left" class="a">
-    <img src="static/Filter-Icons/foodBW.png" align="left" class="a">
-    <img src="static/Filter-Icons/livePerformancesBW.png" align="left" class="a">
-    <img src="static/Filter-Icons/moviesBW.png" align="left" class="a">
-    <img src="static/Filter-Icons/shoppingBW.png" align="left" class="a">
-    <img src="static/Filter-Icons/sportsBW.png" align="left" class="a">
+    <img src="static/Filter-Icons/festivalsBW.png" align="left" class="a" data-name=festivals>
+    <img src="static/Filter-Icons/foodBW.png" align="left" class="a" data-name=food>
+    <img src="static/Filter-Icons/livePerformancesBW.png" align="left" class="a" data-name=livePerformances>
+    <img src="static/Filter-Icons/moviesBW.png" align="left" class="a" data-name=movies>
+    <img src="static/Filter-Icons/shoppingBW.png" align="left" class="a" data-name=shopping>
+    <img src="static/Filter-Icons/sportsBW.png" align="left" class="a" data-name=sports>
 </div>
 
-<script src="GigaGuideScripts.js"></script>
+
+<!-- THIS COMMENT IS AN EXAMPLE OF HOW TO USE THE INFO OF WHAT IS CLICKED AND WHAT IS NOT:::: $(this.data('name')) // check if clicked == true // if so add that name to array -->
+
+<style>
+#bw {
+  position: relative;
+}
+#colored {
+  position: absolute;
+}
+</style>
+
+
+
+<script src="scripts/GigaGuideScripts.js"></script>

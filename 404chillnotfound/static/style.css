@@ -73,31 +73,17 @@ h1 {
   width: 15%;
 }
 
-div {
-  position: relative;
-  display: inline;
-}
 
 img.a {
-  position: relative;
-  left: 0;
-  top: 0;
   z-index: 10;
 }
 
 #colored {
-  width: 500px auto;
-  position: absolute;
-  background-color: black;
-  right: 100px;
+  position: relative;;
 }
 
 #bw {
-  width: 500px auto;
   position: absolute;
-  z-index: 1;
-  background-color: red;
-  right: 50px
 }
 
 header {background: #e44424;color:white;}
