@@ -55,19 +55,18 @@ html, body {
 }
 
 #colored {
-  width: 1000px auto;
+  width: 500px auto;
   position: absolute;
   background-color: black;
-  right: 100px;
-
+  right: 50px
 }
 
 #bw {
-  width: 1000px auto;
+  width: 500px auto;
   position: absolute;
   z-index: 1;
   background-color: red;
-  right: 100px;
+  right: 50px
 }
 
 header {background: #e44424;color:white;}
