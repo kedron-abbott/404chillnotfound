@@ -114,10 +114,20 @@ class RecentHandler (webapp2.RequestHandler):
         'content':renderRecentInfo()
         }))
 
+class MapHandler (webapp2.RequestHandler):
+    def get(self):
+        mapTemplate = env.get_template('maps2.html')
+        mapContent = mapTemplate.render()
+        indexTemplate = env.get_template('index.html')
+        self.response.out.write(indexTemplate.render({
+        'content':mapContent,
+        'jsCollegeList':jsCollegeList,
+        }))
 
 # Main application showing how to handle user's requests
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/filters', FilterHandler),
     ('/recent', RecentHandler),
+    ('/map', MapHandler),
 ], debug=True)

@@ -18,8 +18,10 @@ $( document ).ready(function() {
 });
 
 // Autocomplete college name as user types
+/*
 $( function() {
     $( "#colleges" ).autocomplete({
       source: jsCollegeList
     });
 } );
+*/
