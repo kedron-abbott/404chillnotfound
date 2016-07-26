@@ -8,6 +8,7 @@ html, body {
 }
 
 h1 {
+  text-align: center;
   text-shadow: 6px 6px 0px rgba(0,0,0,0.2);
 }
 
@@ -16,7 +17,7 @@ h1 {
   height: 75px;
   top: 0;
   left: 0;
-  width: 500%;
+  width: 100%;
   opacity: 0.9;
 }
 
