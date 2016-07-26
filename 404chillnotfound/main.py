@@ -41,7 +41,7 @@ def pushCollege(name):
 
 # Creates and outputs a query with the 3 most recent college searches
 def renderRecentInfo():
-    recentCollegeQuery = CollegeInfo.query().order(-CollegeInfo.searchTime).fetch()
+    recentCollegeQuery = CollegeInfo.query().order(-CollegeInfo.searchTime).fetch(limit=3)
     templateVariables = []
     for data in recentCollegeQuery:
         thisCollege = {}

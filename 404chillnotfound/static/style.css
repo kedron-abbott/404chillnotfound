@@ -49,6 +49,11 @@ h1 {
   text-align: left;
 }
 
+/* Changing the style of the autocomplete box */
+.ui-autocomplete {
+	width: 60%;
+}
+
 /* Contains recent colleges and article boxes */
 .flex-container {
   width: 100%;

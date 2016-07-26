@@ -18,10 +18,17 @@ $( document ).ready(function() {
 });
 
 // Autocomplete college name as user types
-/*
 $( function() {
     $( "#colleges" ).autocomplete({
-      source: jsCollegeList
+      source: function (req, response) {
+				var results = $.ui.autocomplete.filter(jsCollegeList, req.term);
+				response(results.slice(0, 5));  // Limit to 5 results
+			}
     });
 } );
-*/
+
+// Limiting the width of autocomplete
+jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+  var ul = this.menu.element;
+  ul.outerWidth(this.element.outerWidth());
+}
