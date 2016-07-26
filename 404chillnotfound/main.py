@@ -86,6 +86,7 @@ class FilterHandler (webapp2.RequestHandler):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':filterContent,
+        'jsCollegeList':jsCollegeList,
         }))
 
 # Main application showing how to handle user's requests
