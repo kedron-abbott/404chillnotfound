@@ -121,8 +121,9 @@ class MapHandler (webapp2.RequestHandler):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':mapContent,
-        'jsCollegeList':jsCollegeList,
+    #    'jsCollegeList':jsCollegeList,
         }))
+
 
 # Main application showing how to handle user's requests
 app = webapp2.WSGIApplication([
