@@ -10,12 +10,27 @@ $( document ).ready(function() {
 	      	console.log("fading in: ");
 	     }
 		}
+\\
 	);
 
 	$('img.a').on("click", sayhi);
-	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));} //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
+	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));
+	if $(this).data("clicked") {
+	selectedFilters.push($(this.data('name')))}
+	else
+
+	}} //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
 
 });
+
+
+var selectedFilters = [];
+selectedFilters.indexOf($(this.data('name')));
+//NOT REAL YET
+//if clicked == true (get the name of filter clicked)
+////selectedFilters.push($(this.data('name')))
+
+
 
 // Autocomplete college name as user types
 $( function() {
