@@ -13,6 +13,9 @@ $( document ).ready(function() {
 	);
 
 
+
+
+
 	$('img.a').on("click", sayhi);
 	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));
 	}
