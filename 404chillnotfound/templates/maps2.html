@@ -99,14 +99,20 @@
 
       function createMarker(place) {
         var placeLoc = place.geometry.location;
+
         var marker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
+
         });
 
-        google.maps.event.addListener(marker, 'click', function() {
-        infowindow.setContent('<div><strong>' + place.name + '</strong>' + '<br>' + place.vicinity + '</div>ss');
-        infowindow.open(map, this);
+      //  var infowindow = new google.maps.InfoWindow({
+        //  content: '<div class="blacktext"><strong>' + place.name + '</strong>' + '<br>' + place.vicinity + '</div>'
+        //})
+
+        marker.addListener('click', function() {
+        infowindow.setContent('<div class="blacktext"><strong>' + place.name + '</strong>' + '<br>' + place.vicinity + '</div>');
+        infowindow.open(map, marker);
         });
       }
     </script>
