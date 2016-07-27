@@ -37,6 +37,7 @@ h1 a {
   left: 0;
   width: 100%;
   opacity: 0.9;
+  line-height: 25px;
 }
 
 /* Bottom footer with copyright */
