@@ -10,9 +10,9 @@ $( document ).ready(function() {
 	      	console.log("fading in: ");
 	     }
 		}
-\\
 	);
-
+});
+/*
 	$('img.a').on("click", sayhi);
 	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));
 	if $(this).data("clicked") {
@@ -29,7 +29,7 @@ selectedFilters.indexOf($(this.data('name')));
 //NOT REAL YET
 //if clicked == true (get the name of filter clicked)
 ////selectedFilters.push($(this.data('name')))
-
+*/
 
 
 // Autocomplete college name as user types
@@ -46,4 +46,4 @@ $( function() {
 jQuery.ui.autocomplete.prototype._resizeMenu = function () {
   var ul = this.menu.element;
   ul.outerWidth(this.element.outerWidth());
-}
+};
