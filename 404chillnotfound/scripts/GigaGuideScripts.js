@@ -11,7 +11,7 @@ $( document ).ready(function() {
 	     }
 		}
 	);
-});
+});  //DONT FORGET TO TAKE THIS OUT WHEN YOU UNCOMMENT THE STUFF BELOW
 /*
 	$('img.a').on("click", sayhi);
 	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));

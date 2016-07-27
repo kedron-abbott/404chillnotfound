@@ -84,7 +84,7 @@ class MainHandler(webapp2.RequestHandler):
     # When user enters college
     def post(self):
         collegeName = self.request.get("college-name")
-        if collegeName in collegeList or collegeName.upper() in collegeAliases: # Only push college if valid name, give filter choice
+        if collegeName in collegeList or collegeName in collegeAliases: # Only push college if valid name, give filter choice
             pushCollege(collegeName)
             resultsTemplate = env.get_template('filters.html')
         else: # Do not push college if invalid, inform user with error page
@@ -97,7 +97,7 @@ class MainHandler(webapp2.RequestHandler):
         }))
 
 # Handler to test appearance of filters; identical to MainHandler's post method with valid college name
-class FilterHandler (webapp2.RequestHandler):
+class FilterHandler(webapp2.RequestHandler):
     def get(self):
         filterTemplate = env.get_template('filters.html')
         filterContent = filterTemplate.render()
@@ -107,14 +107,14 @@ class FilterHandler (webapp2.RequestHandler):
         'jsCollegeList':jsCollegeList,
         }))
 
-class RecentHandler (webapp2.RequestHandler):
+class RecentHandler(webapp2.RequestHandler):
     def get(self):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':renderRecentInfo()
         }))
 
-class MapHandler (webapp2.RequestHandler):
+class MapHandler(webapp2.RequestHandler):
     def get(self):
         mapTemplate = env.get_template('maps2.html')
         mapContent = mapTemplate.render()
@@ -124,6 +124,16 @@ class MapHandler (webapp2.RequestHandler):
         'jsCollegeList':jsCollegeList,
         }))
 
+class ErrorHandler(webapp2.RequestHandler):
+    def get(self):
+        errorTemplate = env.get_template('error.html')
+        errorContent = errorTemplate.render()
+        indexTemplate = env.get_template('index.html')
+        self.response.out.write(indexTemplate.render({
+        'content':errorContent,
+        'jsCollegeList':jsCollegeList,
+        'recContent':renderRecentInfo(),
+        }))
 
 # Main application showing how to handle user's requests
 app = webapp2.WSGIApplication([
@@ -131,4 +141,5 @@ app = webapp2.WSGIApplication([
     ('/filters', FilterHandler),
     ('/recent', RecentHandler),
     ('/map', MapHandler),
+    ('/error', ErrorHandler),
 ], debug=True)

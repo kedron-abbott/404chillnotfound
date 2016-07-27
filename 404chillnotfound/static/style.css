@@ -1,3 +1,6 @@
+/* Importing ABeeZee font */
+@import 'https://fonts.googleapis.com/css?family=ABeeZee';
+
 /* Sets fixed background */
 html {
   background: url('http://arcollegeadvising.com/wp-content/uploads/2015/06/boise-state-campus-fall.jpg') no-repeat center center fixed;
@@ -7,6 +10,7 @@ html {
 html, body {
   padding: 0;
   margin: 0;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 /* CHANGE THIS TO MAKE TEXT LOGO PRETTY */
@@ -57,6 +61,7 @@ h1 a {
   opacity: 0.7;
   font-size: 40px;
   text-align: left;
+  font-family: 'ABeeZee', sans-serif;
 }
 
 /* Changing the style of the autocomplete box */
@@ -112,7 +117,6 @@ h1 a {
 	color: white;
 	border-radius: 10px 10px 10px 10px;
 	box-shadow: inset 0 0 5px rgba(53,86,129,0.5);
-	font-family: 'Muli', sans-serif;
 }
 
 /* Styling college name in recently searched box */
