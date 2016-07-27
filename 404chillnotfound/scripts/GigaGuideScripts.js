@@ -21,19 +21,18 @@ $( document ).ready(function() {
 	}
  //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
 
-	var selectedFilters = [];
+	var selectedFilters = []; //this is the array where the clicked filter names are stored 
 
-	//NOT REAL YET
-	$('#filterSubmit').on("click", runThroughAllImgs);
+	$('#filterSubmit').on("click", runThroughAllImgs);//this entire function runs through all the images to check and see which ones are clicked v which ones are not
 	function runThroughAllImgs () {
 		$('img.a').each(addClicked);
-		console.log (selectedFilters)
-//window.location.href="maps.html?filters=" + (selectedFilters).join(",")
-		return false
+		console.log (selectedFilters) //this is how you can check which ones are clicked through the console
+//PROBABLY HOW WE ARE GOING TO GET THE INFO INTO THE URL FOR THE MAPS >>> window.location.href="maps.html?filters=" + (selectedFilters).join(",")
+		return false // this part keeps it on the filters page when you press submit
 	}
 	function addClicked(index,element){
 		if ($(element).data("clicked")) {
-		selectedFilters.push($(element).data('name'));
+		selectedFilters.push($(element).data('name')); // this puts the clicked filters into the array up top
 		}
 	}
 });
