@@ -11,25 +11,30 @@ $( document ).ready(function() {
 	     }
 		}
 	);
-});
-/*
+
+
 	$('img.a').on("click", sayhi);
 	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));
-	if $(this).data("clicked") {
-	selectedFilters.push($(this.data('name')))}
-	else
+	}
+ //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
 
-	}} //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
+	var selectedFilters = [];
 
+	//NOT REAL YET
+	$('#filterSubmit').on("click", runThroughAllImgs);
+	function runThroughAllImgs () {
+		$('img.a').each(addClicked);
+		console.log (selectedFilters)
+//window.location.href="maps.html?filters=" + (selectedFilters).join(",")
+		return false
+	}
+	function addClicked(index,element){
+		if ($(element).data("clicked")) {
+		selectedFilters.push($(element).data('name'));
+		}
+	}
 });
 
-
-var selectedFilters = [];
-selectedFilters.indexOf($(this.data('name')));
-//NOT REAL YET
-//if clicked == true (get the name of filter clicked)
-////selectedFilters.push($(this.data('name')))
-*/
 
 
 // Autocomplete college name as user types
