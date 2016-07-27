@@ -150,7 +150,6 @@ h1 a {
 /*  */
 .constraint {
   max-width: 645px;
-  background-color: red;
   overflow: scroll;
 }
 
