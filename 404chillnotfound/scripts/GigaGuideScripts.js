@@ -11,25 +11,32 @@ $( document ).ready(function() {
 	     }
 		}
 	);
-});  //DONT FORGET TO TAKE THIS OUT WHEN YOU UNCOMMENT THE STUFF BELOW
-/*
+
+
+
+
+
 	$('img.a').on("click", sayhi);
 	function sayhi () {$( this ).data("clicked",!$(this).data("clicked"));
-	if $(this).data("clicked") {
-	selectedFilters.push($(this.data('name')))}
-	else
+	}
+ //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
 
-	}} //this checks to see if the value of clicked is true. If the value is true, and the image is clicked, it sets to false. If it's false and the image is clicked the value changes to true
+	var selectedFilters = []; //this is the array where the clicked filter names are stored 
 
+	$('#filterSubmit').on("click", runThroughAllImgs);//this entire function runs through all the images to check and see which ones are clicked v which ones are not
+	function runThroughAllImgs () {
+		$('img.a').each(addClicked);
+		console.log (selectedFilters) //this is how you can check which ones are clicked through the console
+//PROBABLY HOW WE ARE GOING TO GET THE INFO INTO THE URL FOR THE MAPS >>> window.location.href="maps.html?filters=" + (selectedFilters).join(",")
+		return false // this part keeps it on the filters page when you press submit
+	}
+	function addClicked(index,element){
+		if ($(element).data("clicked")) {
+		selectedFilters.push($(element).data('name')); // this puts the clicked filters into the array up top
+		}
+	}
 });
 
-
-var selectedFilters = [];
-selectedFilters.indexOf($(this.data('name')));
-//NOT REAL YET
-//if clicked == true (get the name of filter clicked)
-////selectedFilters.push($(this.data('name')))
-*/
 
 
 // Autocomplete college name as user types
