@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Place searches</title>
+
+
+  </head>
+
+  <body>
+    <div id="map"></div>
+
+    <script>
+      function resizeMap(){
+        $('#map').css({height: $(window).height() - 130 })
+      }
+
+      $(window).resize(resizeMap);
+      $(window).load(resizeMap);
+
+    </script>
+    <script>
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+      //("Hi")
+      //debugger;
+      var map;
+      var infowindow;
+
+      function initMap() {
+        var pyrmont = {lat: 42.359968, lng: -71.060093};
+
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: pyrmont,
+          zoom: 15
+        });
+
+        infowindow = new google.maps.InfoWindow();
+        var clothing_storeservice = new google.maps.places.PlacesService(map);
+        var shopping_mallservice = new google.maps.places.PlacesService(map);
+        var night_clubservice = new google.maps.places.PlacesService(map);
+        var movie_theaterservice = new google.maps.places.PlacesService(map);
+        var bowling_alleyservice = new google.maps.places.PlacesService(map);
+        var restaurantservice = new google.maps.places.PlacesService(map);
+        var amusement_parkservice = new google.maps.places.PlacesService(map);
+
+
+        clothing_storeservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['clothing_store']
+        }, callback);
+
+        shopping_mallservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['shopping_mall']
+        }, callback);
+
+        night_clubservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['night_club']
+        }, callback);
+
+        movie_theaterservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['movie_theater']
+        }, callback);
+
+        bowling_alleyservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['stadium']
+        }, callback);
+
+        restaurantservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['restaurant']
+        }, callback);
+
+        amusement_parkservice.nearbySearch({
+          location: pyrmont,
+          radius: 500,
+          type: ['amusement_park']
+        }, callback);
+
+      }
+
+      function callback(results, status) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            createMarker(results[i]);
+          }
+        }
+      }
+
+      function createMarker(place) {
+        var placeLoc = place.geometry.location;
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
+
+        google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent('<div><strong>' + place.name + '</strong>' + '<br>' + place.vicinity + '</div>ss');
+        infowindow.open(map, this);
+        });
+      }
+    </script>
+  <!-- <iframe>
+    width="600"
+    height="450"
+    frameborder="0" style="border:0"
+    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAZAKCQUtcbkbGTCz0SMvSyPuPgqKSSxpI&q=Space+Needle,Seattle+WA" allowfullscreen>
+  </iframe> -->
+
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwkEJSCJzAFECVHkQ4Nl62ELvmAatCMPA&libraries=places&callback=initMap"></script>
+
+  </body>
+
+</html>
