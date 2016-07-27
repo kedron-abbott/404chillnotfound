@@ -2,27 +2,38 @@
 <html>
 
 <head>
+  <link href='https://fonts.googleapis.com/css?family=Lily+Script+One' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script type='text/javascript' src="GigaGuideScripts.js"></script>
+<!--  <script type='text/javascript' src="GigaGuideScripts.js"></script>
   <script>
   var jsCollegeList = {{ jsCollegeList }};
-  </script>
+</script> -->
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+  <meta charset="utf-8">
+  <style>
+
+    #map {
+      position: relative;
+      top: 25px;
+    }
+  </style>
   <title>GigaGuide</title>
 </head>
 
 <body>
 
   <header class="header">
-    <h1>GigaGuide</h1>
+    <h1><a href="/">GigaGuide</a></h1>
   </header>
 <div class="flex-container">
     <aside class="recent">
-      <h3>Recently Viewed Colleges:</h3>
+      {{ recContent }}
     </aside>
 
   <article class="article">
     {{ content }}
+
   </article>
 </div>
   <footer class="footer">
