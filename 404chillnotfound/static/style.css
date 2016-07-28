@@ -147,30 +147,24 @@ h1 a {
 	color: #788699;
 }
 
-/*  */
+
 .constraint {
-  max-width: 214px;
-  /* background-color: red;*/
-  min-width: 214px;
+  /*max-width: 250px;
+  min-width: 250px;
   max-height: 560px;
+  */
   overflow: scroll;
   margin-left: 23%;
+  max-width: 660px;
+  height: 430px;
 
 
 }
 /*  */
 img.a {
   z-index: 10;
-  padding: 10px;
 }
 
-img.b {
-  padding: 10px;
-}
-
-#festivals {
-  background-image: url("static/Filter-Icons/festivals.png");
-}
 /* */
 #colored {
   position: relative;
@@ -184,11 +178,55 @@ img.b {
 /*  */
 #bw {
   position: relative;
-  /*background-color: black;*/
-  max-width: 214px;
-  min-width: 214px;
+  /*background-color: black;
+  max-width: 194px;
+  min-width: 194px;
   min-height: 1290px;
   max-height: 1290px;
+  */
+  width: 660px;
+  height: 100%;
+}
+
+#festivals {
+  background-image: url("static/Filter-Icons/festivals.png");
+}
+
+#food {
+  background-image: url("static/Filter-Icons/food.png");
+}
+
+#shopping {
+  background-image: url("static/Filter-Icons/shopping.png");
+}
+
+#movies {
+  background-image: url("static/Filter-Icons/movies.png");
+}
+
+#nightclub {
+  background-image: url("static/Filter-Icons/livePerformances.png");
+}
+
+#stadium {
+  background-image: url("static/Filter-Icons/sports.png");
+}
+
+.icons {
+  width: 194px;
+  height: 194px;
+  margin: 10px;
+  display: inline-block;
+}
+
+@media only screen and  (max-width: 480px) {
+  .icons {
+    display: block;
+  }
+  .constraint{
+    margin-left: 15%;
+    height: 620px;
+  }
 }
 
 /* Changes colours of main elements */
