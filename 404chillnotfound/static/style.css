@@ -149,10 +149,15 @@ h1 a {
 
 /*  */
 .constraint {
-  max-width: 645px;
+  max-width: 214px;
+  /* background-color: red;*/
+  min-width: 214px;
+  max-height: 560px;
   overflow: scroll;
-}
+  margin-left: 23%;
 
+
+}
 /*  */
 img.a {
   z-index: 10;
@@ -163,16 +168,27 @@ img.b {
   padding: 10px;
 }
 
-/*  */
+#festivals {
+  background-image: url("static/Filter-Icons/festivals.png");
+}
+/* */
 #colored {
   position: relative;
-  max-width: 645px;
+  background-color: white;
+  max-width: 214px;
+  min-width: 214px;
+  min-height: 1290px;
+  max-height: 1290px;
 }
 
 /*  */
 #bw {
   position: relative;
-  max-width: 645px
+  /*background-color: black;*/
+  max-width: 214px;
+  min-width: 214px;
+  min-height: 1290px;
+  max-height: 1290px;
 }
 
 /* Changes colours of main elements */
