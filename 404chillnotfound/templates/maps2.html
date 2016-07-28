@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Place searches</title>
+    <title>Hotspot searches</title>
 
 
   </head>
 
   <body>
+    <div>
+    </div>
+
+
+<h2 id= "map_locations"></h2>
     <div id="map"></div>
+    <table>
+       <tr>
+        <th id="name_of_place">Name</th>
+        <th>Address</th>
+
+       </tr>
+    </table>
 
     <script>
       function resizeMap(){
-        $('#map').css({height: $(window).height() - 130 })
+        $('#map').css({height: $(window).height() - 400 })
       }
 
       $(window).resize(resizeMap);
       $(window).load(resizeMap);
 
     </script>
+
+
     <script>
       // This example requires the Places library. Include the libraries=places
       // parameter when you first load the API. For example:
@@ -26,6 +40,9 @@
       //debugger;
       var map;
       var infowindow;
+      var map_long;
+      var map_lat;
+
 
       function initMap() {
         var pyrmont = {lat: 42.359968, lng: -71.060093};
@@ -87,6 +104,26 @@
           type: ['amusement_park']
         }, callback);
 
+        amusement_parkservice.getDetails({
+          placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
+          location: pyrmont,
+          radius: 500,
+          type: ['amusement_park']
+        }, callbackDetails);
+      }
+
+      function callbackDetails(results, status){
+         if (status == google.maps.places.PlacesServiceStatus.OK) {
+           var list = document.createElement('ul');
+           for (var i = 0; i < results.length; i++) {
+             var item = document.createElement('li');
+             //set its contents
+             item.appendChild(document.createTextNode(results[i].formatted_phone_number));
+             console.log(results[i].formatted_phone_number);
+             list.appendChild(item);
+           }
+           document.getElementById("map_locations").appendChild=list;
+         }
       }
 
       function callback(results, status) {
@@ -106,6 +143,7 @@
 
         });
 
+
       //  var infowindow = new google.maps.InfoWindow({
         //  content: '<div class="blacktext"><strong>' + place.name + '</strong>' + '<br>' + place.vicinity + '</div>'
         //})
@@ -113,18 +151,28 @@
         marker.addListener('click', function() {
         infowindow.setContent('<div class="blacktext"><strong>' + place.name + '</strong>' + '<br>' + place.vicinity + '</div>');
         infowindow.open(map, marker);
+        //print results[i]
         });
+
       }
     </script>
+
+
+
+
+
+
   <!-- <iframe>
     width="600"
     height="450"
     frameborder="0" style="border:0"
     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyAZAKCQUtcbkbGTCz0SMvSyPuPgqKSSxpI&q=Space+Needle,Seattle+WA" allowfullscreen>
   </iframe> -->
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAwkEJSCJzAFECVHkQ4Nl62ELvmAatCMPA&libraries=places&callback=initMap"></script>
+    <!--    print 'results[i]' -->
+
 
   </body>
+
 
 </html>
