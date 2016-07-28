@@ -33,8 +33,13 @@ $( document ).ready(function() {
 	}
 	function addClicked(index,element){
 		if ($(element).data("clicked")) {
-			$('#filtersInput').value += $(element).data('name') + ',';
-		selectedFilters.push($(element).data('name')); // this puts the clicked filters into the array up top
+			$('<input>').attr({
+				type: 'hidden',
+				value: true,
+				name: $(element).data('name')
+			}).appendTo('#filterSubmit')
+			//$('#' + $(element).data('name')).val("y");
+		  //selectedFilters.push($(element).data('name')); // this puts the clicked filters into the array up top
 		}
 	}
 });
