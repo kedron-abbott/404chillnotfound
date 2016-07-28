@@ -37,6 +37,8 @@
 
 
       function initMap() {
+        var query = getQueryParams(document.location.search);
+        console.log(query.radius);
         var pyrmont = {lat: mapLat, lng: mapLong};
 
         map = new google.maps.Map(document.getElementById('map'), {
@@ -53,12 +55,12 @@
         var restaurantservice = new google.maps.places.PlacesService(map);
         var amusement_parkservice = new google.maps.places.PlacesService(map);
 
-
         clothing_storeservice.nearbySearch({
           location: pyrmont,
           radius: 500,
           type: ['clothing_store']
         }, callback);
+
 
         shopping_mallservice.nearbySearch({
           location: pyrmont,
@@ -148,6 +150,16 @@
         });
 
       }
+    function getQueryParams(qs) {
+      qs = qs.split('+').join(' ');
+      var params = {},
+      tokens,
+      re = /[?&]?([^=]+)=([^&]*)/g;
+      while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+      }
+      return params;
+    }
     </script>
 
 
