@@ -32,12 +32,12 @@
     <script>
       var map;
       var infowindow;
-      var map_long;
-      var map_lat;
+      var mapLong = {{ mapLong }};
+      var mapLat = {{ mapLat }};
 
 
       function initMap() {
-        var pyrmont = {lat: 42.359968, lng: -71.060093};
+        var pyrmont = {lat: mapLat, lng: mapLong};
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
