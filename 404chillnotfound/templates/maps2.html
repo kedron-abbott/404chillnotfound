@@ -2,8 +2,6 @@
 <html>
   <head>
     <title>Hotspot searches</title>
-
-
   </head>
 
   <body>
@@ -25,19 +23,13 @@
       function resizeMap(){
         $('#map').css({height: $(window).height() - 200 })
       }
-
-      $(window).resize(resizeMap);
       $(window).load(resizeMap);
+      $(window).resize(resizeMap);
 
     </script>
 
 
     <script>
-      // This example requires the Places library. Include the libraries=places
-      // parameter when you first load the API. For example:
-      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
-      //("Hi")
-      //debugger;
       var map;
       var infowindow;
       var map_long;
