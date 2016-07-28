@@ -34,6 +34,7 @@
       var infowindow;
       var mapLong = {{ mapLong }};
       var mapLat = {{ mapLat }};
+      var mapRadius = {{ mapRadius }};
 
 
       function initMap() {
@@ -41,7 +42,7 @@
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
-          zoom: 15
+          zoom: 30
         });
 
         infowindow = new google.maps.InfoWindow();
@@ -56,50 +57,50 @@
 
         clothing_storeservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['clothing_store']
         }, callback);
 
         shopping_mallservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['shopping_mall']
         }, callback);
 
         night_clubservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['night_club']
         }, callback);
 
         movie_theaterservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['movie_theater']
         }, callback);
 
         bowling_alleyservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['stadium']
         }, callback);
 
         restaurantservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['restaurant']
         }, callback);
 
         amusement_parkservice.nearbySearch({
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['amusement_park']
         }, callback);
 
         amusement_parkservice.getDetails({
           placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
           location: pyrmont,
-          radius: 500,
+          radius: mapRadius,
           type: ['amusement_park']
         }, callbackDetails);
       }

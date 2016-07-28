@@ -229,6 +229,12 @@ img.a {
   }
 }
 
+@media only screen and  (max-width: 768px) {
+  .recent {
+    margin-top: 80px;
+  }
+}
+
 /* Changes colours of main elements */
 header {background: #e44424;color:white;}
 footer {background: #a2ab58;color:white;}
