@@ -78,7 +78,7 @@ class MainHandler(webapp2.RequestHandler):
         indexTemplate = env.get_template('index.html')
         self.response.out.write(indexTemplate.render({
         'content':entryContent,
-        'recContent':renderRecentInfo(),
+        'sideContent':renderRecentInfo(),
         'jsCollegeList':jsCollegeList,
         }))
     # When user enters college
@@ -86,23 +86,17 @@ class MainHandler(webapp2.RequestHandler):
         collegeName = self.request.get("college-name")
         if collegeName in collegeList or collegeName in collegeAliases: # Only push college if valid name, give filter choice
             pushCollege(collegeName)
-            resultsTemplate = env.get_template('filters.html')
+            self.redirect('/filters')
         else: # Do not push college if invalid, inform user with error page
-            resultsTemplate = env.get_template('error.html')
-        # Render the next page with the appropriate content (results or error)
-        resultsContent = resultsTemplate.render()
-        indexTemplate = env.get_template('index.html')
-        self.response.out.write(indexTemplate.render({
-        'content':resultsContent,
-        }))
+            self.redirect('/error')
 
-# Handler to test appearance of filters; identical to MainHandler's post method with valid college name
+# Handlers to test separate pages; not actually used by user
 class FilterHandler(webapp2.RequestHandler):
     def get(self):
         filterTemplate = env.get_template('filters.html')
         filterContent = filterTemplate.render()
         indexTemplate = env.get_template('index.html')
-        self.response.out.write(indexTemplate.render({
+        self.response.write(indexTemplate.render({
         'content':filterContent,
         'jsCollegeList':jsCollegeList,
         }))
@@ -132,7 +126,7 @@ class ErrorHandler(webapp2.RequestHandler):
         self.response.out.write(indexTemplate.render({
         'content':errorContent,
         'jsCollegeList':jsCollegeList,
-        'recContent':renderRecentInfo(),
+        'sideContent':renderRecentInfo(),
         }))
 
 # Main application showing how to handle user's requests
