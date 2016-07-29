@@ -34,14 +34,20 @@
       var infowindow;
       var mapLong = {{ mapLong }};
       var mapLat = {{ mapLat }};
-      var mapRadius = {{ mapRadius }};
+
+      // var mapRadius = {{ mapRadius }};
+      /*
+      if (mapRadius == None){
+        mapRadius = 2000
+      }
+      */
 
 
       function initMap() {
         var query = getQueryParams(document.location.search);
-        console.log(query.radius);
+        console.log("radius from query: " + query.radius);
         var pyrmont = {lat: mapLat, lng: mapLong};
-
+        var mapRadius = query.radius;
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
           zoom: 14
@@ -57,7 +63,7 @@
         var restaurantservice = new google.maps.places.PlacesService(map);
         var amusement_parkservice = new google.maps.places.PlacesService(map);
         console.log(query);
-        console.log(mapRadius);
+        console.log("map radius: " + mapRadius);
         console.log(pyrmont);
         console.log(query.movie_theater);
         console.log(query.restaurant);
