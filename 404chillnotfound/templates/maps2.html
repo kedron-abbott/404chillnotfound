@@ -38,14 +38,17 @@
 
 
       function initMap() {
+        var query = getQueryParams(document.location.search);
+        console.log(query.radius);
         var pyrmont = {lat: mapLat, lng: mapLong};
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
-          zoom: 30
+          zoom: 15
         });
 
         infowindow = new google.maps.InfoWindow();
+
         var clothing_storeservice = new google.maps.places.PlacesService(map);
         var shopping_mallservice = new google.maps.places.PlacesService(map);
         var night_clubservice = new google.maps.places.PlacesService(map);
@@ -53,49 +56,71 @@
         var bowling_alleyservice = new google.maps.places.PlacesService(map);
         var restaurantservice = new google.maps.places.PlacesService(map);
         var amusement_parkservice = new google.maps.places.PlacesService(map);
+        console.log(query);
+        console.log(mapRadius);
+        console.log(pyrmont);
+        console.log(query.movie_theater);
+        console.log(query.restaurant);
+        if (query.movie_theater) {
+          movie_theaterservice.nearbySearch({
+            location: pyrmont,
+            radius: mapRadius,
+            type: ['movie_theater']
+          }, callback);
+        }
+
+        if (query.clothing_store){
+          clothing_storeservice.nearbySearch({
+            location: pyrmont,
+            radius: mapRadius,
+            type: ['clothing_store']
+          }, callback);
+        }
 
 
-        clothing_storeservice.nearbySearch({
-          location: pyrmont,
-          radius: mapRadius,
-          type: ['clothing_store']
-        }, callback);
+        if (query.shopping_mall){
+          shopping_mallservice.nearbySearch({
+            location: pyrmont,
+            radius: mapRadius,
+            type: ['shopping_mall']
+          }, callback);
+        }
 
-        shopping_mallservice.nearbySearch({
-          location: pyrmont,
-          radius: mapRadius,
-          type: ['shopping_mall']
-        }, callback);
+        if (query.night_club){
+          night_clubservice.nearbySearch({
+            location: pyrmont,
+            radius: mapRadius,
+            type: ['night_club']
+          }, callback);
+        }
 
-        night_clubservice.nearbySearch({
-          location: pyrmont,
-          radius: mapRadius,
-          type: ['night_club']
-        }, callback);
 
-        movie_theaterservice.nearbySearch({
-          location: pyrmont,
-          radius: mapRadius,
-          type: ['movie_theater']
-        }, callback);
 
-        bowling_alleyservice.nearbySearch({
+
+        /*bowling_alleyservice.nearbySearch({
           location: pyrmont,
           radius: mapRadius,
           type: ['stadium']
         }, callback);
+        */
 
-        restaurantservice.nearbySearch({
-          location: pyrmont,
-          radius: mapRadius,
-          type: ['restaurant']
-        }, callback);
 
-        amusement_parkservice.nearbySearch({
-          location: pyrmont,
-          radius: mapRadius,
-          type: ['amusement_park']
-        }, callback);
+        if (query.restaurant){
+          restaurantservice.nearbySearch({
+            location: pyrmont,
+            radius: mapRadius,
+            type: ['restaurant']
+          }, callback);
+        }
+
+        if (query.amusement_park){
+          amusement_parkservice.nearbySearch({
+            location: pyrmont,
+            radius: mapRadius,
+            type: ['amusement_park']
+          }, callback);
+        }
+
 
         amusement_parkservice.getDetails({
           placeId: 'ChIJN1t_tDeuEmsRUsoyG83frY4',
@@ -104,6 +129,8 @@
           type: ['amusement_park']
         }, callbackDetails);
       }
+
+
 
       function callbackDetails(results, status){
          if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -149,6 +176,16 @@
         });
 
       }
+    function getQueryParams(qs) {
+      qs = qs.split('+').join(' ');
+      var params = {},
+      tokens,
+      re = /[?&]?([^=]+)=([^&]*)/g;
+      while (tokens = re.exec(qs)) {
+            params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+      }
+      return params;
+    }
     </script>
 
 
