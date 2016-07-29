@@ -133,7 +133,7 @@ class FilterHandler(BaseHandler):
     def post(self):
         radius = self.request.get('radius')
         self.session['radius'] = radius
-        self.redirect('/maps')
+        self.redirect('/map')
 
 # Hander to disply recent page, for debugging only
 class RecentHandler(BaseHandler):

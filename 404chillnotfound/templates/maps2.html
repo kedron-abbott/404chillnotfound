@@ -44,7 +44,7 @@
 
         map = new google.maps.Map(document.getElementById('map'), {
           center: pyrmont,
-          zoom: 30
+          zoom: 15
         });
 
         infowindow = new google.maps.InfoWindow();
@@ -56,7 +56,11 @@
         var bowling_alleyservice = new google.maps.places.PlacesService(map);
         var restaurantservice = new google.maps.places.PlacesService(map);
         var amusement_parkservice = new google.maps.places.PlacesService(map);
-
+        console.log(query);
+        console.log(mapRadius);
+        console.log(pyrmont);
+        console.log(query.movie_theater);
+        console.log(query.restaurant);
         if (query.movie_theater) {
           movie_theaterservice.nearbySearch({
             location: pyrmont,
@@ -127,7 +131,7 @@
       }
 
 
-      
+
       function callbackDetails(results, status){
          if (status == google.maps.places.PlacesServiceStatus.OK) {
            var list = document.createElement('ul');
